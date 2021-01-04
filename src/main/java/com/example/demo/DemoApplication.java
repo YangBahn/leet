@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Arrays;
 
-import static com.example.demo.ArraySolution.singleNumber;
 import static java.lang.System.out;
 import static java.util.stream.Collectors.joining;
 
@@ -19,7 +18,8 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
-		out.println(singleNumber(input_singleNumber));
+
+		Sorting.mergeTwo();
 	}
 
 
@@ -30,6 +30,14 @@ public class DemoApplication {
 					.mapToObj(String::valueOf)
 					.collect(joining(","))
 			);
+		}
+
+		public static void print(Object obj) {
+			out.println(String.valueOf(obj));
+		}
+
+		public static void print(Boolean val) {
+			out.println(String.valueOf(val));
 		}
 	}
 
