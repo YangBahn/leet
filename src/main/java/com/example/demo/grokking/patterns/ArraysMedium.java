@@ -1,4 +1,4 @@
-package com.example.demo.medium;
+package com.example.demo.grokking.patterns;
 
 import java.util.ArrayList;
 import java.util.HashMap;

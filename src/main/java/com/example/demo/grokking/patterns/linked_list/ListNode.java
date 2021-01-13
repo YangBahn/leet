@@ -7,4 +7,6 @@ class ListNode {
 	ListNode(int value) {
 		this.value = value;
 	}
+
+
 }
