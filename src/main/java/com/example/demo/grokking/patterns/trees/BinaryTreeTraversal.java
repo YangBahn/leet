@@ -116,4 +116,64 @@ public class BinaryTreeTraversal {
 
 		return result;
 	}
+
+	public static List<Double> findLevelAverages(TreeNode root) {
+		List<Double> result = new ArrayList<>();
+		Queue<TreeNode> que = new LinkedList<>();
+		que.offer(root);
+		while (!que.isEmpty()) {
+			int levSize = que.size();
+			List<Integer> lev = new ArrayList<>();
+			double total = 0;
+			for (int i = 0; i < levSize; i++) {
+				TreeNode curNode = que.poll();
+				lev.add(curNode.val);
+				total += curNode.val;
+
+				if (curNode.left != null) {
+					que.offer(curNode.left);
+				}
+
+				if (curNode.right != null) {
+					que.offer(curNode.right);
+				}
+
+			}
+
+			result.add((double) (total / levSize));
+		}
+
+		return result;
+	}
+
+	public static int findMinDepth(TreeNode root) {
+		List<Double> result = new ArrayList<>();
+		Queue<TreeNode> que = new LinkedList<>();
+		que.offer(root);
+		int shortest = 0;
+		while (!que.isEmpty()) {
+			int levSize = que.size();
+			List<Integer> lev = new ArrayList<>();
+			double total = 0;
+			for (int i = 0; i < levSize; i++) {
+				TreeNode curNode = que.poll();
+				lev.add(curNode.val);
+				total += curNode.val;
+
+				if (curNode.left != null) {
+					que.offer(curNode.left);
+				}
+
+				if (curNode.right != null) {
+					que.offer(curNode.right);
+				}
+
+			}
+
+			result.add((double) (total / levSize));
+		}
+
+
+		return shortest;
+	}
 }

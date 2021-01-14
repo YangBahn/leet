@@ -38,7 +38,7 @@ class BinaryTreeTraversalTest {
 	}
 
 	@Test
-	public void zigzagReverse(){
+	public void zigzagTraverse(){
 		TreeNode root = new TreeNode(12);
 		root.left = new TreeNode(7);
 		root.right = new TreeNode(1);
@@ -48,6 +48,19 @@ class BinaryTreeTraversalTest {
 		root.right.left.left = new TreeNode(20);
 		root.right.left.right = new TreeNode(17);
 		List<List<Integer>> result = BinaryTreeTraversal.zigZagTraverse(root);
+		System.out.println("Level order traversal: " + result);
+//		assertEquals(3, result.size());
+	}
+	@Test
+	public void levAvergeTraverse(){
+		TreeNode root = new TreeNode(12);
+		root.left = new TreeNode(7);
+		root.right = new TreeNode(1);
+		root.left.left = new TreeNode(9);
+		root.left.right = new TreeNode(2);
+		root.right.left = new TreeNode(10);
+		root.right.right = new TreeNode(5);
+		List<Double>result = BinaryTreeTraversal.findLevelAverages(root);
 		System.out.println("Level order traversal: " + result);
 //		assertEquals(3, result.size());
 	}
