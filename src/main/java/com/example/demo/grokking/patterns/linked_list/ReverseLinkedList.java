@@ -69,11 +69,21 @@ public class ReverseLinkedList {
 	}
 
 
-	// only evenly divided list will be given
-	public static ListNode reverseIn2groups(ListNode head){
+	// in twos
+	public static ListNode reverseIn2groups(ListNode head) {
 
+		int groupLen = 2;
+		ListNode cur = head;
+		ListNode prev = null;
+		for (int i = 0; i < groupLen; i++) {
+			ListNode temp = cur.next;
+			cur.next = prev;
+			prev = cur;
+			cur = temp;
+		}
 
+		head.next = cur;
 
-		return head;
+		return prev;
 	}
 }

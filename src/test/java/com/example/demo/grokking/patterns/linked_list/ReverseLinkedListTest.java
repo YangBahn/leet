@@ -51,7 +51,16 @@ class ReverseLinkedListTest {
 		printLinkedList(result);
 
 	}
+	@Test
+	void reverseIn2groups(){
+		ListNode head = new ListNode(1);
+		head.next = new ListNode(2);
+		head.next.next = new ListNode(3);
+		head.next.next.next = new ListNode(4);
+		ListNode result = ReverseLinkedList.reverseIn2groups(head);
+		printLinkedList(result);
 
+	}
 
 	private void printLinkedList(ListNode head){
 		ListNode cur = head;
