@@ -12,20 +12,29 @@ class LetterCaseStringPermutation {
 		permutations.add(str);
 		// process every character of the string one by one
 		for (int i = 0; i < str.length(); i++) {
-			if (Character.isLetter(str.charAt(i))) { // only process characters, skip digits
+			Character curChar = str.charAt(i);
+
+			// only process characters, skip digits
+			if (Character.isLetter(curChar)) {
 				// we will take all existing permutations and change the letter case appropriately
-				int n = permutations.size();
-				for (int j = 0; j < n; j++) {
-					char[] chs = permutations.get(j).toCharArray();
+				int existingPermSize = permutations.size();
+				for (int permutIdx = 0; permutIdx < existingPermSize; permutIdx++) {
+					String copy = permutations.get(permutIdx);
+					char curCharMatch = copy.charAt(i);
 					// if the current character is in upper case change it to lower case or vice versa
-					if (Character.isUpperCase(chs[i]))
-						chs[i] = Character.toLowerCase(chs[i]);
-					else
-						chs[i] = Character.toUpperCase(chs[i]);
-					permutations.add(String.valueOf(chs));
+					if (Character.isUpperCase(curCharMatch)) {
+						copy = copy.replace(curCharMatch, Character.toLowerCase(curCharMatch));
+					} else {
+						copy = copy.replace(curCharMatch, Character.toUpperCase(curCharMatch));
+
+					}
+					permutations.add(copy);
 				}
 			}
+
 		}
+
+
 		return permutations;
 	}
 
@@ -57,15 +66,8 @@ class LetterCaseStringPermutation {
 
 	public static void main(String[] args) {
 
-		List<Character> chars = new ArrayList<>();
-		chars.add('a');
-		chars.add('b');
-		chars.add('c');
-		List<String> result = LetterCaseStringPermutation.createCaps(chars, 1));
-//		List<String> result = LetterCaseStringPermutation.findLetterCaseStringPermutations("ad52");
-		System.out.println(" String permutations are: " + result);
 
-//		result = LetterCaseStringPermutation.findLetterCaseStringPermutations("ab7c");
-//		System.out.println(" String permutations are: " + result);
+		List<String> result = LetterCaseStringPermutation.findLetterCaseStringPermutations("ab7c");
+		System.out.println(" String permutations are: " + result);
 	}
 }
