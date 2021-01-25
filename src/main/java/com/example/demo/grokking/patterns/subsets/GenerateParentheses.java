@@ -1,6 +1,5 @@
 package com.example.demo.grokking.patterns.subsets;
 
-import sun.jvm.hotspot.utilities.Assert;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

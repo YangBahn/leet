@@ -200,7 +200,7 @@ public class BinaryTreeTraversal {
 	}
 
 	public static void connectLevelOrderSiblings(TreeNode root) {
-
+		long l = 2l;
 		Queue<TreeNode> que = new LinkedList<>();
 		root.next = null;
 		que.offer(root);
