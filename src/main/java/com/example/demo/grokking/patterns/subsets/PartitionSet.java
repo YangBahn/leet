@@ -1,5 +1,8 @@
 package com.example.demo.grokking.patterns.subsets;
 
+import java.util.HashMap;
+import java.util.Map;
+
 class PartitionSet {
 
 	public boolean canPartition(int[] num) {
@@ -41,13 +44,16 @@ class PartitionSet {
 		return dp[currentIndex][sum];
 	}
 
+
+
+
 	public static void main(String[] args) {
 		PartitionSet ps = new PartitionSet();
-		int[] num = { 1, 2, 3, 4 };
+		int[] num = {1, 2, 3, 4};
 		System.out.println(ps.canPartition(num));
-		num = new int[] { 1, 1, 3, 4, 7 };
+		num = new int[]{1, 1, 3, 4, 7};
 		System.out.println(ps.canPartition(num));
-		num = new int[] { 2, 3, 4, 6 };
+		num = new int[]{2, 3, 4, 6};
 		System.out.println(ps.canPartition(num));
 	}
 }
