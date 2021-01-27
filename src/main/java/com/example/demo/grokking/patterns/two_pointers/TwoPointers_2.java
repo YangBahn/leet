@@ -74,7 +74,7 @@ public class TwoPointers_2 {
 	static class TripletSumCloseToTarget {
 
 		public static int searchTriplet(int[] arr, int targetSum) {
-			Arrays.sort(arr);
+ 			Arrays.sort(arr);
 
 			int closestSum = -1;
 			int right = arr.length - 1;
