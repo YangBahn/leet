@@ -1,8 +1,7 @@
-package com.example.demo;
+package com.example.demo.grokking.patterns;
 
 import java.util.*;
 
-import static com.example.demo.DemoApplication.Printr.print;
 
 public class ArraySolution {
 
@@ -55,7 +54,6 @@ public class ArraySolution {
 
 			nums[srcIdx] = lookUp[i];
 
-			print(nums);
 		}
 	}
 

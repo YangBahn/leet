@@ -1,4 +1,4 @@
-package com.example.demo.assorted;
+package com.example.demo.memo_this.assorted;
 
 
 /*

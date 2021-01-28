@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.grokking.patterns;
 
 import java.util.ArrayList;
 import java.util.Arrays;

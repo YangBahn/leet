@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.grokking.patterns;
 
 public class BinaryTree {
 

@@ -1,14 +1,14 @@
-package com.example.demo.assorted;
+package com.example.demo.memo_this.assorted;
 
 
 /*
 Until arriving, do:
 	check next path, return if arrived
-	move next path
+	if not, move to next path
 fail if can't do either above
 
 Check Next isPath:
-	both row & col in map and are OPEN
+	both row & col inside map and are OPEN
 
 Check Arrived:
 	both row & col are the last square and are OPEN
@@ -61,11 +61,11 @@ public class RatMaze {
 		return atTheEndSquare &&  maze[row][y] == OPEN;
 	}
 
-	static boolean isPath(int[][] maze, int x, int y) {
+	static boolean isPath(int[][] maze, int rowIsWithinBound, int colIsWithinBound) {
 		// if (x, y outside maze) return false
-		boolean xIsWithinBound = x >= 0 && x < mazeLen;
-		boolean yIsWithinBound = y >= 0 && y < mazeLen;
-		return xIsWithinBound && yIsWithinBound && maze[x][y] == OPEN;
+		boolean xIsWithinBound = rowIsWithinBound >= 0 && rowIsWithinBound < mazeLen;
+		boolean yIsWithinBound = colIsWithinBound >= 0 && colIsWithinBound < mazeLen;
+		return xIsWithinBound && yIsWithinBound && maze[rowIsWithinBound][colIsWithinBound] == OPEN;
 	}
 
 	static void printSolution(int[][] sol) {
