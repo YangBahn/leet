@@ -1,13 +1,11 @@
 package com.example.demo.grokking.patterns.linked_list;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class ReverseLinkedList {
 
-	public static ListNode reverse(ListNode head) {
+	static ListNode reverse(ListNode head) {
 
 		ListNode prev = null;
 		ListNode cur = head;
@@ -23,7 +21,7 @@ public class ReverseLinkedList {
 	}
 
 
-	public static ListNode reverseSubList(ListNode head, int p, int q) {
+	static ListNode reverseSubList(ListNode head, int p, int q) {
 		if (p == q)
 			return head;
 
@@ -54,7 +52,7 @@ public class ReverseLinkedList {
 		return head;
 	}
 
-	public static ListNode reverseGivenNum(ListNode head, int q) {
+	static ListNode reverseGivenNum(ListNode head, int q) {
 		ListNode current = head;
 		ListNode prev = null;
 
@@ -76,7 +74,7 @@ public class ReverseLinkedList {
 
 	// in twos
 
-	public static ListNode reverseIn2groups(ListNode head) {
+	static ListNode reverseIn2groups(ListNode head) {
 
 		int groupLen = 2;
 		ListNode cur = head;
@@ -129,7 +127,7 @@ public class ReverseLinkedList {
 		return head;
 	}
 
-	public static ListNode reverseEveryK_2(ListNode head, int k) {
+	static ListNode reverseEveryK_2(ListNode head, int k) {
 		if (k <= 1 || head == null)
 			return head;
 

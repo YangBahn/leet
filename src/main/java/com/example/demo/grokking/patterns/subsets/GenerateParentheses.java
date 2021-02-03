@@ -1,6 +1,8 @@
 package com.example.demo.grokking.patterns.subsets;
 
 
+import com.example.demo.memo_this.common.ParenthesesString;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,17 +11,17 @@ import java.util.Queue;
 
 /* Problem: given N number of paranth pair, generate all possible permutations of the paranth couples*/
 class GenerateParentheses {
-	static class ParenthesesString {
-		String str;
-		int openCount; // open parentheses count
-		int closeCount; // close parentheses count
-
-		public ParenthesesString(String s, int openCount, int closeCount) {
-			str = s;
-			this.openCount = openCount;
-			this.closeCount = closeCount;
-		}
-	}
+//	static class ParenthesesString {
+//		String str;
+//		int openCount; // open parentheses count
+//		int closeCount; // close parentheses count
+//
+//		public ParenthesesString(String s, int openCount, int closeCount) {
+//			str = s;
+//			this.openCount = openCount;
+//			this.closeCount = closeCount;
+//		}
+//	}
 
 
 	public static List<String> generateValidParentheses(int num) {

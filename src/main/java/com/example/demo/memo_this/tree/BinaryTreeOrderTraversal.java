@@ -1,61 +1,77 @@
 package com.example.demo.memo_this.tree;
 
-import java.util.*;
+import com.example.demo.memo_this.common.TreeNode;
 
-// load left/right to a Queue(linkedList) while node has left or right
-// process each
-public class BinaryTreeOrderTraversal {
-	static class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-		TreeNode next;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
-		TreeNode(int x) {
-			val = x;
-			left = right = next = null;
-		}
-	}
+/*
+Create 'Level Values List (main)' to store each levels values
+Create LinkedList Queue and add the first node
+
+Repeat while the Queue is not empty
+	iterate the Queue and do:
+		Poll each node in queue and add it to the value list
+		Reload Queue with curNode's left and/or right to Queue for next iteration if exists
+	add the value list to main list
+return main list
+
+* */
+class BinaryTreeOrderTraversal {
 
 	static class BinaryTree {
-		Node root;
+		static List<List<Integer>> traverse(TreeNode node) {
+			List<List<Integer>> nodeLevelsValues = new ArrayList<List<Integer>>();
+			Queue<TreeNode> nodeQueue = new LinkedList<>();
+			nodeQueue.offer(node);
 
-		public static List<List<Integer>> traverse(TreeNode root) {
-			List<List<Integer>> result = new ArrayList<List<Integer>>();
-			Queue<TreeNode> que = new LinkedList<>();
-			que.offer(root);
-			while (!que.isEmpty()) {
-				int levSize = que.size();
-				List<Integer> lev = new ArrayList<>();
+			while (!nodeQueue.isEmpty()) {
+				List<Integer> levVals = new ArrayList<>();
+				int curLevSize = nodeQueue.size();
 
-				for (int i = 0; i < levSize; i++) {
-					TreeNode curNode = que.poll();
-					lev.add(Objects.requireNonNull(curNode).val);
-
+				for (int i = 0; i < curLevSize; i++) {
+					TreeNode curNode = nodeQueue.poll();
+					levVals.add(curNode.val);
 					if (curNode.left != null) {
-						que.offer(curNode.left);
+						nodeQueue.offer(curNode.left);
 					}
 
 					if (curNode.right != null) {
-						que.offer(curNode.right);
+						nodeQueue.offer(curNode.right);
 					}
 				}
 
-				result.add(lev);
+
+				nodeLevelsValues.add(levVals);
 			}
-			return result;
+
+			return nodeLevelsValues;
 		}
+
 	}
 
 
 	public static void main(String[] args) {
-		TreeNode tree_level = new TreeNode(1);
-		tree_level.root.left = new TreeNode(2);
-		tree_level.root.right = new TreeNode(3);
-		tree_level.root.left.left = new TreeNode(4);
-		tree_level.root.left.right = new TreeNode(5);
-		List<List<Integer>> result = BinaryTreeOrderTraversal.BinaryTree.traverse(tree_level);
-		System.out.println("Level order traversal of binary tree is - ");
+		TreeNode treeNode = new TreeNode(1);
+		treeNode.left = new TreeNode(2);
+		treeNode.right = new TreeNode(3);
+		treeNode.right.left = new TreeNode(6);
+		treeNode.right.right = new TreeNode(7);
+
+		treeNode.left.left = new TreeNode(4);
+		treeNode.left.right = new TreeNode(5);
+
+
+		List<List<Integer>> result = BinaryTreeOrderTraversal.BinaryTree.traverse(treeNode);
+		result.forEach(list -> {
+
+					list.forEach(n -> System.out.print(n + " "));
+					System.out.println();
+				}
+		);
+
 
 	}
 }

@@ -1,21 +1,12 @@
 package com.example.demo.grokking.patterns.linked_list;
 
+import com.example.demo.memo_this.common.Interval;
+
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-/*
-    Created by Kevin on Jan, 2021, demo
-*/public class MergeIntervals {
-	static class Interval {
-		int start;
-		int end;
 
-		public Interval(int start, int end) {
-			this.start = start;
-			this.end = end;
-		}
-	}
+public class MergeIntervals {
+
 
 	public static List<Interval> merge(List<Interval> intervals) {
 

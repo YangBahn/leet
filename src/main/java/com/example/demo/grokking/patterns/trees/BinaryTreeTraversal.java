@@ -3,7 +3,7 @@ package com.example.demo.grokking.patterns.trees;
 
 import java.util.*;
 
-public class BinaryTreeTraversal {
+class BinaryTreeTraversal {
 
 	static class TreeNode {
 		int val;
@@ -17,7 +17,7 @@ public class BinaryTreeTraversal {
 		}
 	}
 
-	public static List<List<Integer>> traverse(TreeNode root) {
+	static List<List<Integer>> traverse(TreeNode root) {
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
 
 		Queue<TreeNode> que = new LinkedList<>();
@@ -47,7 +47,7 @@ public class BinaryTreeTraversal {
 		return result;
 	}
 
-	public static List<List<Integer>> reverseTraverse(TreeNode root) {
+	static List<List<Integer>> reverseTraverse(TreeNode root) {
 		List<List<Integer>> result = new LinkedList<List<Integer>>();
 
 		Queue<TreeNode> que = new LinkedList<>();
@@ -78,7 +78,7 @@ public class BinaryTreeTraversal {
 		return result;
 	}
 
-	public static List<List<Integer>> zigZagTraverse(TreeNode root) {
+	static List<List<Integer>> zigZagTraverse(TreeNode root) {
 		List<List<Integer>> result = new LinkedList<List<Integer>>();
 
 		Queue<TreeNode> que = new LinkedList<>();
@@ -114,7 +114,7 @@ public class BinaryTreeTraversal {
 		return result;
 	}
 
-	public static List<Double> findLevelAverages(TreeNode root) {
+	static List<Double> findLevelAverages(TreeNode root) {
 		List<Double> result = new ArrayList<>();
 		Queue<TreeNode> que = new LinkedList<>();
 		que.offer(root);
@@ -143,7 +143,7 @@ public class BinaryTreeTraversal {
 		return result;
 	}
 
-	public static int findMinDepth(TreeNode root) {
+	static int findMinDepth(TreeNode root) {
 		List<List<Integer>> result = new LinkedList<List<Integer>>();
 		Queue<TreeNode> que = new LinkedList<>();
 		que.offer(root);
@@ -179,7 +179,7 @@ public class BinaryTreeTraversal {
 		return result.size();
 	}
 
-	public static TreeNode findSuccessor(TreeNode root, int key) {
+	static TreeNode findSuccessor(TreeNode root, int key) {
 
 		Queue<TreeNode> queue = new LinkedList<>();
 		queue.offer(root);
@@ -199,7 +199,7 @@ public class BinaryTreeTraversal {
 		return queue.peek();
 	}
 
-	public static void connectLevelOrderSiblings(TreeNode root) {
+	static void connectLevelOrderSiblings(TreeNode root) {
 		long l = 2l;
 		Queue<TreeNode> que = new LinkedList<>();
 		root.next = null;

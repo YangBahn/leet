@@ -1,16 +1,15 @@
 package com.example.demo.grokking.patterns.linked_list;
 
+import com.example.demo.memo_this.common.Interval;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import static com.example.demo.grokking.patterns.linked_list.MergeIntervals.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-class MergeIntervalsTest {
+class MergeMergeIntervalsTest {
 
 	@Test
 	void merge() {
