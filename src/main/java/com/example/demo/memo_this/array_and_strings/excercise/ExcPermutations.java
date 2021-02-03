@@ -86,7 +86,7 @@ public class ExcPermutations {
 	}
 
 
-	// generate all possible whole parentheses at k length
+	// generate all possible whole parentheses at k count
 	static class GenerateParentheses {
 		/*
 		Create 'result list' and 'parenthQueue', load it with an empty ParentheseString
@@ -109,10 +109,10 @@ public class ExcPermutations {
 				} else {
 
 					if (lastParenthese.openCount < maxPairCount) {
-						pStringQueue.add(new ParenthesesString(lastParenthese.openCount + "{", lastParenthese.openCount + 1, lastParenthese.closeCount));
+						pStringQueue.add(new ParenthesesString(lastParenthese.str + "{", lastParenthese.openCount + 1, lastParenthese.closeCount));
 					}
-					if (pStringQueue.peek().openCount > pStringQueue.peek().closeCount) {
-						pStringQueue.add(new ParenthesesString(pStringQueue.peek().str + "}", lastParenthese.openCount, lastParenthese.closeCount + 1));
+					if (lastParenthese.openCount > lastParenthese.closeCount) {
+						pStringQueue.add(new ParenthesesString(lastParenthese.str + "}", lastParenthese.openCount, lastParenthese.closeCount + 1));
 					}
 				}
 			}

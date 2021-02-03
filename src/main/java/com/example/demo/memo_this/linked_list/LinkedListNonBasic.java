@@ -9,18 +9,20 @@ class LinkedListNonBasic {
 
 
 	/*
-	# traverse two nodes, compare value, load node to a placeholder node.
-	Store placeholder node's head ref
-	repeat while both one,two are present
-		compare vals of one and two
-			set NodeInFocus to whichever is smaller
-			& move the node to its next
+	#  traverse two nodes, compare value, load node to a placeholder node. #
+
+	Store placeholder node's head reference
+	while both nodeOne,nodeTwo are present
+		Assign one of node1 or node2 to nodeInFocus whichever has smaller cur value.
+		set move nodeInFocus to its next
+
 	check if either of oneThread or twoThread have remaining nodes
 		if present, attach the remaining to the end of NodeInFocus
-
 	return placeHolder's next
 	*/
+
 	private static ListNode mergeTwoSortedLists(ListNode one, ListNode two) {
+
 		ListNode headOfPlaceHolderNode = new ListNode(0);
 
 		ListNode nodeInFocus = headOfPlaceHolderNode;
