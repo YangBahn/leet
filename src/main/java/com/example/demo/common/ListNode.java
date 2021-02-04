@@ -1,4 +1,4 @@
-package com.example.demo.memo_this.common;
+package com.example.demo.common;
 
 
 public class ListNode {

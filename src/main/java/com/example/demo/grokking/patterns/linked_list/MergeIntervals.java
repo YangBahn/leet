@@ -1,6 +1,6 @@
 package com.example.demo.grokking.patterns.linked_list;
 
-import com.example.demo.memo_this.common.Interval;
+import com.example.demo.common.Interval;
 
 import java.util.*;
 

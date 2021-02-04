@@ -1,6 +1,6 @@
 package com.example.demo.memo_this.linked_list;
 
-import com.example.demo.memo_this.common.ListNode;
+import com.example.demo.common.ListNode;
 
 import java.util.HashSet;
 import java.util.Stack;

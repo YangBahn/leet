@@ -27,9 +27,7 @@ Repeat while NodeInFocus(fn) is present
 	move focus to the stored fn
 */
 
-import com.example.demo.memo_this.common.ListNode;
-
-import java.util.Objects;
+import com.example.demo.common.ListNode;
 
 public class ExLinkedListBasicOperations {
 

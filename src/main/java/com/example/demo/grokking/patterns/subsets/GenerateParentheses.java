@@ -1,7 +1,7 @@
 package com.example.demo.grokking.patterns.subsets;
 
 
-import com.example.demo.memo_this.common.ParenthesesString;
+import com.example.demo.common.ParenthesesString;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

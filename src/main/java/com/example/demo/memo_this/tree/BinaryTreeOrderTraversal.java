@@ -1,6 +1,6 @@
 package com.example.demo.memo_this.tree;
 
-import com.example.demo.memo_this.common.TreeNode;
+import com.example.demo.common.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

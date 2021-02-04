@@ -1,17 +1,19 @@
 package com.example.demo.memo_this.tree;
 
 
-import com.example.demo.memo_this.common.TreeNode;
+import com.example.demo.common.TreeNode;
 
 /*
-* Array must be sorted *
-*
-Divide the array in the center by getting mid index of the array,
-First Half is Left and Last Half is Right
-Repeat adding nodes for the range of array:
-	Left - mid to start backward, --1 to start on each iteration
-	Right - mid to end forward, ++1 to end on each iteration
+Array must be sorted *
+Recursively:
+	update mid idx to (range from start to end )/2
+	Create new node with arr[new mid idx]
+    the new node's left and right are added
 
+		left's end = mid, start = 0
+			decrease from mid every cycle then recurse
+		right's start = mid,  end = arrLen-1
+			increase from mid by one every cycle then recurse
 */
 class ConvertArrayToBinaryTree {
 

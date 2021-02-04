@@ -18,7 +18,7 @@ get largest depth from mLeft/mRight
 
 * */
 public class BinaryTreeMaxDepth {
-	static class Node {
+	private static class Node {
 		int value;
 		Node left, right;
 

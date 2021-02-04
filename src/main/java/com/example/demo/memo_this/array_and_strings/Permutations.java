@@ -1,8 +1,8 @@
 package com.example.demo.memo_this.array_and_strings;
 
 
-import com.example.demo.memo_this.common.ParenthesesString;
-import com.example.demo.memo_this.common.TreeNode;
+import com.example.demo.common.ParenthesesString;
+import com.example.demo.common.TreeNode;
 
 import java.util.*;
 

@@ -1,8 +1,8 @@
-package com.example.demo.memo_this.tree;
+package com.example.demo.memo_this.tree.excercise;
 import com.example.demo.common.TreeNode;
 import lombok.experimental.UtilityClass;
 
-public class SymmetricTree {
+public class ExSymmetricTree {
 
 	public static void main(String[] args) {
 		TreeNode tree = new TreeNode(6)
@@ -30,17 +30,6 @@ public class SymmetricTree {
 	@UtilityClass
 	class BinaryTree {
 		boolean isMirror(TreeNode left, TreeNode right) {
-			boolean bothEmpty = left == null && right == null;
-			if (bothEmpty)
-				return true;
-
-			boolean leftRightRootMatched = left != null && right != null && left.val == right.val;
-			if (leftRightRootMatched) {
-				boolean leftIsSymmetrical = isMirror(left.left, right.right);
-				boolean rightIsSymmetrical = isMirror(left.right, right.left);
-				return leftIsSymmetrical && rightIsSymmetrical;
-			}
-
 			return false;
 		}
 

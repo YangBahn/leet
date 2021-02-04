@@ -1,6 +1,6 @@
 package com.example.demo.memo_this.linked_list;
 
-import com.example.demo.memo_this.common.ListNode;
+import com.example.demo.common.ListNode;
 
 import java.util.function.Function;
 
@@ -8,15 +8,16 @@ import java.util.function.Function;
 public class LinkedListMedium {
 
 	public static void main(String[] args) {
-		ListNode one = ListNode.load(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
-		ListNode two = ListNode.load(new int[]{8, 9, 10, 4});
+		ListNode one = ListNode.load(new int[]{1, 9});
+		one.print();
+		ListNode two = ListNode.load(new int[]{1, 1});
+		two.print();
 //		int val = Intersection.getIntersectingNodeValue(one, two);
 //		System.out.println(val);
 
 		ListNode result = new TwoLinkedList().addUpTwoListValues(one, two);
 		result.print();
 	}
-
 
 	static class Intersection {
 
@@ -79,6 +80,8 @@ public class LinkedListMedium {
 
 	}
 
+
+	// TODO - still confusing as hell
 	// add up value from each matching link
 //	Input: l1 = [2,4,3], l2 = [5,6,4]
 //	Output: [7,0,8]
@@ -86,7 +89,7 @@ public class LinkedListMedium {
 	static class TwoLinkedList {
 
 		ListNode addUpTwoListValues(ListNode nodeOne, ListNode nodeTwo) {
-			ListNode result = null;
+
 
 			if (nodeOne == null) {
 				return nodeTwo;
@@ -111,71 +114,33 @@ public class LinkedListMedium {
 				diff--;
 			}
 
-
-			int carry = 0;
-			result = addUpTwoNodes(nodeOne, nodeTwo, carry, result);
-
-			// if some carry is still there, add a new node to
-			// the front of the result list. e.g. 999 and 87
-			if (carry > 0)
-				push(carry, 3, nodeOne, nodeTwo, result);
-			return result;
+			return sumCombineTwoNodes(nodeOne, nodeTwo, 0, null);
 		}
 
-/*		void syncNodesSize(ListNode nodeOne, ListNode nodeTwo) {
-			int nodeOneSize = getsize(nodeOne);
-			int nodeTwoSize = getsize(nodeTwo);
 
-			// keeping one larger for simplicity
-			if (nodeOneSize < nodeTwoSize) {
-				ListNode oldNodeOne = nodeOne;
-				nodeOne = nodeTwo;
-				nodeTwo = oldNodeOne;
-			}
-
-			// move diff. number of nodes in node1
-			int diff = Math.abs(nodeOneSize - nodeTwoSize);
-			while (diff > 0) {
-				nodeOne = nodeOne.next;
-				diff--;
-			}
-
-
-		}*/
-
-		ListNode addUpTwoNodes(ListNode nodeOne, ListNode nodeTwo, int carry, ListNode result) {
-			// Since the function assumes linked lists are of
-			// same size, check any of the two head pointers
+		ListNode sumCombineTwoNodes(ListNode nodeOne, ListNode nodeTwo, int carry, ListNode result) {
 			if (nodeOne == null)
 				return null;
 
-			// Recursively add remaining nodes and get the carry
-			addUpTwoNodes(nodeOne.next, nodeTwo.next, carry, result);
-
-			// add digits of current nodes and propagated carry
 			int sum = nodeOne.val + nodeTwo.val + carry;
 			carry = sum / 10;
 			sum = sum % 10;
+			result = sumCombineTwoNodes(nodeOne.next, nodeTwo.next, carry, result);
 
-			push(sum, 3, nodeOne, nodeTwo, result);
+			result = pushToResult(sum, result);
+			if (carry > 0)
+				result = pushToResult(carry, result);
+
 			return result;
 		}
 
-		void push(int val, int list, ListNode nodeOne, ListNode nodeTwo, ListNode result) {
+
+		private ListNode pushToResult(int val, ListNode result) {
 			ListNode newnode = new ListNode(val);
-			if (list == 1) {
-				newnode.next = nodeOne;
-				nodeOne = newnode;
-			} else if (list == 2) {
-				newnode.next = nodeTwo;
-				nodeTwo = newnode;
-			} else {
-				newnode.next = result;
-				result = newnode;
-			}
-
+			newnode.next = result;
+			result = newnode;
+			return result;
 		}
-
 
 		int getsize(ListNode head) {
 			int count = 0;

@@ -1,6 +1,6 @@
 package com.example.demo.memo_this.array_and_strings.excercise;
 
-import com.example.demo.memo_this.common.Interval;
+import com.example.demo.common.Interval;
 
 import java.util.ArrayList;
 import java.util.List;
