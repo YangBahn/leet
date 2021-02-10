@@ -11,12 +11,21 @@ import java.util.Queue;
 public class SubStrings {
 
 	public static void main(String[] args) {
-		List<String> combos = PhoneNumber.letterCombinations(new int[]{2,3});
+		List<String> combos = PhoneNumber.letterCombinations(new int[]{2, 3});
 		System.out.println(combos);
 	}
 
-	// Given a string containing digits from 2-9 inclusive,
-	// return all possible letter combinations that the number could represent. Return the answer in any order.
+	// Given a string containing digits from 2-9 inclusive, , return all possible letter combinations that the number could represent. Return the answer in any order.
+
+	/*
+	Create a static table representing chars on phone
+	while queue is not empty
+		if curCombo (in queue) is same length as the nArray, add the combo to result
+		else
+		 get string from the table located curNum's Val -th (val == idx)
+		 concat each letter to curCombo then add the combo back to the queue for further processing
+
+	*/
 	@UtilityClass
 	class PhoneNumber {
 		private static final String[] table = {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
@@ -31,10 +40,9 @@ public class SubStrings {
 			while (!comboQueue.isEmpty()) {
 				String curCombo = comboQueue.poll();
 
-				if (curCombo.length() == number.length)
+				if (curCombo.length() == number.length) {
 					result.add(curCombo);
-
-				else {
+				} else {
 
 					int tableIdx = number[curCombo.length()];
 					String val = table[tableIdx];

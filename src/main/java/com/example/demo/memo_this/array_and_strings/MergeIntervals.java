@@ -1,6 +1,7 @@
 package com.example.demo.memo_this.array_and_strings;
 
 import com.example.demo.common.Interval;
+import lombok.experimental.UtilityClass;
 
 import java.util.*;
 
@@ -9,14 +10,15 @@ import static com.example.demo.memo_this.array_and_strings.MergeIntervals.Minimu
 
 // given intervals of time for appointments, check if doable ( no overlap)
 public class MergeIntervals {
-	private static class ConflictingAppointments {
+	@UtilityClass
+	private class ConflictingAppointments {
 		/*
 		Sort intervals by start time
 		Starting with first appt end time (i = 1), loop intervals:
 			If prevAppt.endTime is after curAppt.startTime, return false
 		true if no false found
 		*/
-		private static boolean canAttendAllAppointments(Interval[] intervals) {
+		private boolean canAttendAllAppointments(Interval[] intervals) {
 			// sort the intervals by start time
 			Arrays.sort(intervals, Comparator.comparingInt(interval -> interval.start));
 
