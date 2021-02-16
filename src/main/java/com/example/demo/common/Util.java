@@ -13,6 +13,13 @@ public class Util {
 		printTreeNodes(node.right);
 	}
 
+	public static void printArr(int[] arr) {
+		for (int n : arr) {
+			System.out.print(n + ",");
+		}
+		System.out.println();
+	}
+
 	public TreeNode getBasicTree() {
 		return new TreeNode(6)
 				.setLeft(
