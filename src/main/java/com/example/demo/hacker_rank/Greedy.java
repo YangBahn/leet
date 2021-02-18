@@ -3,58 +3,112 @@ package com.example.demo.hacker_rank;
 import com.example.demo.common.Util;
 import lombok.ToString;
 
+import java.math.BigDecimal;
 import java.util.*;
+import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Greedy {
 
 	public static void main(String[] args) {
-		int[] arr = new int[]{1,3,6,8,10,11};
-		int result = FindPairs.pairs(3, arr);
+		long[] arrA = new long[]{2L, 3L, 2L};
+		long result = MinTimeRequired.minTime(arrA, 10);
+		System.out.println(result);
+
+		arrA = new long[]{4L, 5L, 6L};
+		result = MinTimeRequired.minTime(arrA, 12);
 		System.out.println(result);
 
 	}
 
+
+	private static class MinTimeRequired {
+		private static long minTime(long[] arr, long goal) {
+			int days = 0;
+
+			while(true) {
+				int items = 0;
+				for (long l : arr) items += (days / l);
+
+				if (items >= goal)
+					return days;
+
+				days++;
+			}
+
+
+
+		}
+	}
+
+	// todo:
+	private static class TripleSums {
+
+		static long triplets(int[] a, int[] b, int[] c) {
+
+			UnaryOperator<int[]> sortDistinct = arr -> Arrays.stream(arr).distinct().sorted().toArray();
+
+			long count = 0;
+			a = sortDistinct.apply(a);
+			b = sortDistinct.apply(b);
+			c = sortDistinct.apply(c);
+
+			for (int bVal : b) {
+				long c1 = getValidIndex(a, bVal) + 1;
+				long c3 = getValidIndex(c, bVal) + 1;
+				count += c1 * c3;
+			}
+
+			return count;
+		}
+
+
+		static int getValidIndex(int[] arr, int num) {
+			int left = 0;
+			int right = arr.length - 1;
+			int count = -1;
+
+			while (left <= right) {
+				int mid = left + (right - left) / 2;
+				if (arr[mid] <= num) {
+					count = mid;
+					left = mid + 1;
+				} else {
+					right = mid - 1;
+				}
+			}
+			return count;
+		}
+	}
 
 	private static class FindPairs {
 
 		/* count the number of pairs whose abs diff matches k
 
 		 sort array
-		 calculate diff between left and right
-		 	if diff > k, right--
-		 	if diff < k, left++
-		 	if diff == k, count ++, left ++
+
 
 		*/
 		private static int pairs(int k, int[] arr) {
 			int count = 0;
-
 			Arrays.sort(arr);
+			int fast = 1;
 			for (int i = 0; i < arr.length - 1; i++) {
 				int cur = arr[i];
-				int right = arr.length - 1;
 
-				while (i < right && arr[right] - cur >= k) {
-					int diff = Math.abs(arr[right] - cur);
+				for (int j = i + 1; j < arr.length; j++) {
+					int diff = Math.abs(arr[j] - cur);
+
 					if (diff == k) {
 						count++;
 						break;
 					}
-
-					if (diff < k) {
-						break;
-					}
-
-					right--;
 				}
 			}
 
-
 			return count;
 		}
-
 	}
 
 	@ToString
