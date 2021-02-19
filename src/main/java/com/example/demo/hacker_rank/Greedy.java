@@ -3,7 +3,6 @@ package com.example.demo.hacker_rank;
 import com.example.demo.common.Util;
 import lombok.ToString;
 
-import java.math.BigDecimal;
 import java.util.*;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
@@ -25,19 +24,24 @@ public class Greedy {
 
 	private static class MinTimeRequired {
 		private static long minTime(long[] arr, long goal) {
+			boolean complete = false;
 			int days = 0;
-
-			while(true) {
-				int items = 0;
-				for (long l : arr) items += (days / l);
-
-				if (items >= goal)
-					return days;
-
+			while (!complete) {
 				days++;
+
+				int items = 0;
+				for (long l : arr) {
+					items += (days / l);
+				}
+
+				if (items >= goal) {
+					complete = true;
+				}
+
+
 			}
 
-
+			return days;
 
 		}
 	}
