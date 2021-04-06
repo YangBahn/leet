@@ -108,6 +108,7 @@ public class SlidingWindowsPattern {
 		}
 
 		private static int update_frequency_map_and_match_count(char leftChar, Map<Character, Integer> patternCharFrequencyMap, int matched) {
+
 			if (patternCharFrequencyMap.containsKey(leftChar)) {
 				if (patternCharFrequencyMap.get(leftChar) == 0)
 					matched--; // before putting the character back, decrement the matched count
